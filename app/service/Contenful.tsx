@@ -7,8 +7,8 @@ export const ContenfulClient = createClient({
 });
 
 export const useGetEntries = () => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function fetchData() {

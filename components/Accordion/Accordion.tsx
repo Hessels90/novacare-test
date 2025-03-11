@@ -1,13 +1,6 @@
 import { useState } from "react";
 import styles from "./Accordion.module.css";
-
-type ItemProps = {
-  item: {
-    internalName: string;
-    name: string;
-    text: string;
-  };
-};
+import { ItemProps } from "@/types/AccordionTypes";
 
 export default function Accordion({ item }: ItemProps) {
   const [open, setOpen] = useState(false);
