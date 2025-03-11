@@ -15,10 +15,10 @@ export const useGetEntries = () => {
       try {
         const response = await ContenfulClient.getEntries({
           content_type: "accordion",
-          include: 2,
+          include: 3,
         });
 
-        setData(response.items[0].fields);
+        setData(response.items);
       } catch (error) {
         console.error("Error fetching data", error);
       }

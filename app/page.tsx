@@ -10,20 +10,20 @@ export default function Home() {
     return <div>Loading...</div>;
   }
 
-  if (!data) {
-    return <div>Error fetching data</div>;
-  }
-
   return (
     <div className={styles.page}>
       <div className={styles.accordionContainer}>
-        {data && (
-          <div>
-            <h1>{data.title}</h1>
-            {data.accordionItems.map((item) => (
-              <Accordion item={item.fields} key={item.sys.id} />
-            ))}
-          </div>
+        {data && data.length > 0 ? (
+          data.map((entries) => (
+            <div key={entries.sys.id} className={styles.accordionGroup}>
+              <h1 className={styles.accordionTitle}>{entries.fields.title}</h1>
+              {entries.fields.accordionItems.map((item) => (
+                <Accordion item={item.fields} key={item.sys.id} />
+              ))}
+            </div>
+          ))
+        ) : (
+          <div className={styles.noData}>No accordion data available</div>
         )}
       </div>
     </div>
