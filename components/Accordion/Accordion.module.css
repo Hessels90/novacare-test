@@ -1,17 +1,59 @@
-.accordionContent {
+.accordionItem {
   width: 80vw;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin: 5 0 1rem;
-  padding: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 12px;
+  max-width: 600px;
 }
 
 .accordionButton {
-  width: 80vw;
-  padding: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  padding: 4px 12px;
   border: none;
-  background: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px 8px 0 0;
+  transition: 0.3s ease;
+}
+
+.accordionButton:hover {
+  background: linear-gradient(135deg, #556bd6, #653b91);
+}
+
+.accordionContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  padding: 0 16px;
+  background: #f8f9fa;
+}
+
+.accordionContent.open {
+  max-height: 200px;
+  padding: 16px;
+  border-radius: 0 0 8px 8px;
+}
+
+@media (max-width: 768px) {
+  .accordionItem {
+    max-width: 100%;
+    border-radius: 6px;
+  }
+
+  .accordionButton {
+    font-size: 16px;
+    padding: 10px 14px;
+  }
+
+  .accordionContent {
+    font-size: 14px;
+  }
 }

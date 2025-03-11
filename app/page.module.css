@@ -1,10 +1,13 @@
-.accordion {
-  display: grid;
+.page {
   align-items: center;
   justify-items: center;
-  min-height: 100svh;
   min-width: 80vw;
   padding: 25px;
-  gap: 64px;
   font-family: var(--font-geist-sans);
+}
+
+.accordionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }

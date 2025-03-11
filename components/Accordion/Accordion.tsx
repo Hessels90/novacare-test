@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import styles from "./Accordion.module.css";
 
 type ItemProps = {
@@ -10,15 +10,17 @@ type ItemProps = {
 };
 
 export default function Accordion({ item }: ItemProps) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
-    <div className={styles.accordionContent}>
+    <div className={styles.accordionItem}>
       <button className={styles.accordionButton} onClick={() => setOpen(!open)}>
-        <h2>{item.name}</h2>
-        <h2>{open ? "-" : "+"}</h2>
+        <h3>{item.name}</h3>
+        <span>{open ? "-" : "+"}</span>
       </button>
-      <div>{open && <p>{item.text}</p>}</div>
+      <div className={`${styles.accordionContent} ${open ? styles.open : ""}`}>
+        <p>{item.text}</p>
+      </div>
     </div>
   );
 }
