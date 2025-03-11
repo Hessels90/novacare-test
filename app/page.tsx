@@ -1,21 +1,27 @@
+"use client";
 import styles from "./page.module.css";
-import { createClient } from "contentful";
+import { ContenfulClient } from "./middleware/Contenful";
+import Accordion from "../components/Accordion/Accordion";
 
-const client = createClient({
-  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_API_KEY || "",
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE || "",
-});
-
-const response = await client.getEntries({
+const response = await ContenfulClient.getEntries({
   content_type: "accordion",
   include: 2,
 });
 
 export default function Home() {
-  console.log(response);
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>awdawdawd</main>
+    <div>
+      <div className={styles.page}>
+        {response && (
+          <div>
+            <h1>{response.items[0].fields.title}</h1>
+            {response.items[0].fields.accordionItems &&
+              response.items[0].fields.accordionItems.map((item) => (
+                <Accordion item={item.fields} key={item.sys.id} />
+              ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
