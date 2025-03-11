@@ -15,7 +15,7 @@ export const useGetEntries = () => {
       try {
         const response = await ContenfulClient.getEntries({
           content_type: "accordion",
-          include: 3,
+          include: 2,
         });
 
         setData(response.items);
