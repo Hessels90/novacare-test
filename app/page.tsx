@@ -11,7 +11,7 @@ const response = await ContenfulClient.getEntries({
 export default function Home() {
   return (
     <div>
-      <div className={styles.page}>
+      <div className={styles.accordion}>
         {response && (
           <div>
             <h1>{response.items[0].fields.title}</h1>

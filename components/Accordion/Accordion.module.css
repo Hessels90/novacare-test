@@ -1,6 +1,17 @@
-.accordion {
+.accordionContent {
+  width: 80vw;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin: 5 0 1rem;
   padding: 16px;
+}
+
+.accordionButton {
+  width: 80vw;
+  padding: 0;
+  border: none;
+  background: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

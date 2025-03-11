@@ -9,12 +9,16 @@ type ItemProps = {
   };
 };
 
-export default function Accordion(item: ItemProps) {
-  console.log(item.item);
+export default function Accordion({ item }: ItemProps) {
+  const [open, setOpen] = React.useState(false);
+
   return (
-    <div className={styles.accordion}>
-      <h2>{item.item.name}</h2>
-      <p>{item.item.text}</p>
+    <div className={styles.accordionContent}>
+      <button className={styles.accordionButton} onClick={() => setOpen(!open)}>
+        <h2>{item.name}</h2>
+        <h2>{open ? "-" : "+"}</h2>
+      </button>
+      <div>{open && <p>{item.text}</p>}</div>
     </div>
   );
 }
